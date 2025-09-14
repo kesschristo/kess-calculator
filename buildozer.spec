@@ -1,34 +1,55 @@
 [app]
+
 # (str) Title of your application
 title = Kess Calculator
 
 # (str) Package name
 package.name = kesscalculator
 
-# (str) Package domain (unique, like a reverse website)
+# (str) Package domain (unique identifier, usually org.yourname)
 package.domain = org.kess
 
-# (str) Source code where the main.py is located
+# (str) Source code where main.py lives
 source.dir = .
 
-# (list) Source files to include
-source.include_exts = py,png,jpg,kv,atlas
-
-# (str) Application versioning (method 1)
+# (str) Application versioning
 version = 0.1
 
-# (str) Supported orientation (one of: landscape, portrait, sensor)
-orientation = portrait
+# (str) The main .py file to launch
+source.include_exts = py,png,jpg,kv,atlas
 
-# (bool) Indicate if the application should be fullscreen or not
-fullscreen = 0
-
-# (list) Permissions (leave empty for now)
-android.permissions = 
-
-# (str) Entry point of your app
+# (str) The application entry point
 entrypoint = main.py
 
+# (str) Supported orientations (landscape, portrait or all)
+orientation = portrait
+
+# (bool) Indicate if the application should be fullscreen
+fullscreen = 0
+
+
 [buildozer]
+
+# (str) Log level (1 = error, 2 = warn, 3 = info, 4 = debug, 5 = trace)
 log_level = 2
-warn_on_root = 1
+
+# (int) Target Android API (highest available is best)
+android.api = 33
+
+# (int) Minimum API your APK will support
+android.minapi = 21
+
+# (int) Android SDK version to use
+android.sdk = 33
+
+# (str) Android NDK version to use
+android.ndk = 23b
+
+# (int) Android build tools version
+android.build_tools = 33.0.2
+
+# (str) Application format: apk or aab
+android.release_artifact = apk
+
+# (bool) Copy library instead of making a libpymodules.so
+android.copy_libs = 1
