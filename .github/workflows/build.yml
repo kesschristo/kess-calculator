@@ -38,12 +38,17 @@ jobs:
         export ANDROID_HOME=$HOME/android-sdk
         export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
         yes | sdkmanager --licenses
-        sdkmanager "platform-tools" "platforms;android-31" "build-tools;31.0.0" "build-tools;34.0.0"
+        sdkmanager "platform-tools" "platforms;android-31" "build-tools;34.0.0"
+        # Force symlink for aidl
+        ls $ANDROID_HOME/build-tools/34.0.0
+        sudo ln -sf $ANDROID_HOME/build-tools/34.0.0/aidl /usr/local/bin/aidl
 
     - name: Build APK
       run: |
         export ANDROID_HOME=$HOME/android-sdk
         export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/34.0.0:$PATH
+        which aidl
+        aidl --version || true
         buildozer android debug
 
     - name: Upload APK
