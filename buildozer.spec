@@ -12,7 +12,7 @@ package.domain = org.kess
 # (str) Source code where main.py lives
 source.dir = .
 
-# (str) Application versioning
+# (str) Application versioning (method 1)
 version = 0.1
 
 # (str) The main .py file to launch
@@ -20,6 +20,10 @@ source.include_exts = py,png,jpg,kv,atlas
 
 # (str) The application entry point
 entrypoint = main.py
+
+# (list) Application requirements
+# comma separated, e.g. requirements = sqlite3,kivy
+requirements = python3,kivy
 
 # (str) Supported orientations (landscape, portrait or all)
 orientation = portrait
